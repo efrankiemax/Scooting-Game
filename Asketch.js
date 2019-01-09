@@ -9,35 +9,6 @@ createCanvas(windowWidth,windowHeight);
 	let j = new player(windowWidth/16-100,windowHeight/2,100);
 		players.push(j);
 		console.log(players);
-	//
-	// let g = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
-	// random(0,windowWidth/8),random(windowWidth/16,windowWidth/2));
-	// let q = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
-	// random(0,windowWidth/8),random(windowWidth/16,windowWidth/2));
-	// let o = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
-	// random(0,windowWidth/8),random(windowWidth/16,windowWidth/2));
-	// let e = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
-	// random(0,windowWidth/8),random(windowWidth/16,windowWidth/2));
-	// let r = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
-	// random(0,windowWidth/8),random(windowWidth/16,windowWidth/2));
-	// let t = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
-	// random(0,windowWidth/8),random(windowWidth/16,windowWidth/2));
-	// let u = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
-	// random(0,windowWidth/8),random(windowWidth/16,windowWidth/2));
-	// let p = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
-	// random(0,windowWidth/8),random(windowWidth/16,windowWidth/2));
-	// let s = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
-	// random(0,windowWidth/8),random(windowWidth/16,windowWidth/2));
-	// 	console.log(obstacles);
-	// obstacles.push(g);
-	// obstacles.push(q);
-	// obstacles.push(o);
-	// obstacles.push(e);
-	// obstacles.push(r);
-	// obstacles.push(t);
-	// obstacles.push(u);
-	// obstacles.push(p);
-	// obstacles.push(s);
 for (let i=0; i<15; i++){
 	let z = new obstacle(random(windowWidth/16,3*windowWidth/4),random(0,windowHeight),
 	random(0,windowWidth/8),random(windowWidth/16,windowWidth/4));
@@ -96,7 +67,7 @@ class obstacle {
 	drawObstacle(){  // draw a ball on the screen at x,y
 		stroke(0);
 		strokeWeight(1);
-    fill(255,0,0);
+    fill('rgba(230,0,50, 0.25)');
 		rect(this.x,this.y,this.w,this.h);
 	}
 }
@@ -111,8 +82,11 @@ class player {
 	drawPlayer(){  // draw a ball on the screen at x,y
 		stroke(0);
 		strokeWeight(1);
-    fill(0,0,255);
+    fill('rgba(0,50,230, 0.25)');;
 		rect(this.x,this.y,this.w,this.w);
+		rect(this.x+10,this.y+10,this.w-this.w/5,this.w-this.w/5);
+		rect(this.x+20,this.y+20,this.w-2*this.w/5,this.w-2*this.w/5);
+		rect(this.x+30,this.y+30,this.w-3*this.w/5,this.w-3*this.w/5);
 		if (this.w >= 25 && keyIsDown(189)){
 			this.w = .95*this.w;
 		}
@@ -150,10 +124,10 @@ class player {
 }
 function finishLine(){
 	noFill();
-	stroke('rgba(255,0,50, 0.25)');
+	stroke('rgba(0,200,100, 0.25)');
 	strokeWeight(lineWidth);
 		ellipse(15*windowWidth/16,windowHeight/2,windowWidth/8,windowHeight/2);
-	stroke(255,0,0);
+	stroke(0,200,150);
 	strokeWeight(lineWidth-20);
 		ellipse(15*windowWidth/16,windowHeight/2,windowWidth/8,windowHeight/2);
 
