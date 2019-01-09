@@ -120,19 +120,19 @@ class player {
 
 	movePlayer(){
 		if (keyIsDown(RIGHT_ARROW)) {
-			this.x = this.x +10;
+			this.x = this.x +5;
 		}
 
 		if (keyIsDown(LEFT_ARROW)) {
-			this.x = this.x -10;
+			this.x = this.x -5;
 		}
 
 		if(keyIsDown(UP_ARROW)){
-			this.y = this.y -10;
+			this.y = this.y -5;
 		}
 
 		if(keyIsDown(DOWN_ARROW)){
-			this.y = this.y +10;
+			this.y = this.y +5;
 		}
   }
  diePlayer(){ //this is not working. I want it to create a white screen that says "you loose" when the player comes into contact with a line, right now it is not reacting at all.
