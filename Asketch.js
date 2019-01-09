@@ -9,38 +9,40 @@ createCanvas(windowWidth,windowHeight);
 	let j = new player(windowWidth/16-100,windowHeight/2,100);
 		players.push(j);
 		console.log(players);
-	let z = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
-	random(0,windowWidth/16),random(windowWidth/16,3*windowWidth/4));
-	let g = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
-	random(0,windowWidth/16),random(windowWidth/16,3*windowWidth/4));
-	let q = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
-	random(0,windowWidth/16),random(windowWidth/16,3*windowWidth/4));
-	let o = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
-	random(0,windowWidth/16),random(windowWidth/16,3*windowWidth/4));
-	let e = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
-	random(0,windowWidth/16),random(windowWidth/16,3*windowWidth/4));
-	let r = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
-	random(0,windowWidth/16),random(windowWidth/16,3*windowWidth/4));
-	let t = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
-	random(0,windowWidth/16),random(windowWidth/16,3*windowWidth/4));
-	let u = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
-	random(0,windowWidth/16),random(windowWidth/16,3*windowWidth/4));
-	let p = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
-	random(0,windowWidth/16),random(windowWidth/16,3*windowWidth/4));
-	let s = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
-	random(0,windowWidth/16),random(windowWidth/16,3*windowWidth/4));
-		console.log(obstacles);
- 	obstacles.push(z);
-	obstacles.push(g);
-	obstacles.push(q);
-	obstacles.push(o);
-	obstacles.push(e);
-	obstacles.push(r);
-	obstacles.push(t);
-	obstacles.push(u);
-	obstacles.push(p);
-	obstacles.push(s);
-
+	//
+	// let g = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
+	// random(0,windowWidth/8),random(windowWidth/16,windowWidth/2));
+	// let q = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
+	// random(0,windowWidth/8),random(windowWidth/16,windowWidth/2));
+	// let o = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
+	// random(0,windowWidth/8),random(windowWidth/16,windowWidth/2));
+	// let e = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
+	// random(0,windowWidth/8),random(windowWidth/16,windowWidth/2));
+	// let r = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
+	// random(0,windowWidth/8),random(windowWidth/16,windowWidth/2));
+	// let t = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
+	// random(0,windowWidth/8),random(windowWidth/16,windowWidth/2));
+	// let u = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
+	// random(0,windowWidth/8),random(windowWidth/16,windowWidth/2));
+	// let p = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
+	// random(0,windowWidth/8),random(windowWidth/16,windowWidth/2));
+	// let s = new obstacle(random(windowWidth/16,7*windowWidth/8),random(0,windowHeight),
+	// random(0,windowWidth/8),random(windowWidth/16,windowWidth/2));
+	// 	console.log(obstacles);
+	// obstacles.push(g);
+	// obstacles.push(q);
+	// obstacles.push(o);
+	// obstacles.push(e);
+	// obstacles.push(r);
+	// obstacles.push(t);
+	// obstacles.push(u);
+	// obstacles.push(p);
+	// obstacles.push(s);
+for (let i=0; i<15; i++){
+	let z = new obstacle(random(windowWidth/16,3*windowWidth/4),random(0,windowHeight),
+	random(0,windowWidth/8),random(windowWidth/16,windowWidth/4));
+	obstacles.push(z);
+}
 
 }
 
@@ -57,8 +59,8 @@ finishLine();
 	for (let i = 0; i < obstacles.length; i++) {
 		obstacles[i].drawObstacle();
   }
-
 }
+
 if (winning==true){
 	noStroke();
 	fill(255);
@@ -75,11 +77,13 @@ if (gameOver==true){
 		 rect(0,0,windowWidth,windowHeight);
 	 fill(0);
 	 textSize(100);
-		 text('YOU LOOSE!',windowWidth/2,windowHeight/2);
+		 text('YOU LOSE!',windowWidth/2,windowHeight/2);
 	print("game over!")
 }
 
 }
+
+
 
 class obstacle {
 	constructor(x,y,w,h){ //every ball needs an x value and a y value
@@ -109,7 +113,7 @@ class player {
 		strokeWeight(1);
     fill(0,0,255);
 		rect(this.x,this.y,this.w,this.w);
-		if (this.w >= 50 && keyIsDown(189)){
+		if (this.w >= 25 && keyIsDown(189)){
 			this.w = .95*this.w;
 		}
 		if (this.w <= 200 && keyIsDown(187)){
